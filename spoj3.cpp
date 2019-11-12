@@ -14,62 +14,68 @@
 //Najwcześniejsze położenie liczby najmniejszej
 //Wartość największej liczby w danym ciągu
 //Ostatnie położenie liczby największej
+//
+//Przykład
+//
+//        Wejście:
+//
+//4
+//-3
+//7
+//2
+//-1
+//11
+//-3
+//7
+//11
+//2
+//4
+//
+//Wyjście:
+//
+//-3
+//2
+//11
+//9
 
 
-#include <cstdio>
+
+
 #include <iostream>
 
 using namespace std;
 
 int main() {
-    int work = 1;
-    int i = 1;
-
-    int max = 0;
+    int max = -999;
     int max_pos = 0;
-    int min = 0;
+    int min = 999;
     int min_pos = 0;
-    int min_pos_lock = 0;
 
-    int liczba;
+    int x;
 
-    while (work == 1) {
-        cin >> liczba;
-//        if (!scanf_s("%d", &liczba)) {
-//            work = 2;
-//            break;
-//        }
-        if (liczba == 0) {
-            work = 2;
+    for (int i = 1; i < 999; i++) {
+
+
+        cin >> x;
+        if (x == 999)
             break;
-        }
-        if (liczba >= -500 && liczba <= 500) {
-            if (max <= liczba) {
-                max = liczba;
-                max_pos = i;
-            }
-            if (min > liczba) {
-                if (min != liczba) {
-                    min_pos = i;
-                }
-                min = liczba;
-            }
-        }
-//        else
-//        {
-//            work = 2;
-//            break;
-//        }
 
-        i++;
+//        if (x >= -500 && x <= 500) {
+        if (max <= x) {
+            max = x;
+            max_pos = i;
+        }
+        if (min > x) {
+            min = x;
+            min_pos = i;
+        }
+//        }
     }
-    cout << min;
-    cout << "\n";
-    cout << min_pos;
-    cout << "\n";
-    cout << max;
-    cout << "\n";
+    cout << min << "\n";
+    cout << min_pos << "\n";
+    cout << max << "\n";
     cout << max_pos;
 
     return 0;
+
 }
